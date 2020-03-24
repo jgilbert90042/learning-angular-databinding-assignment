@@ -1,3 +1,7 @@
 <div class="container">
-  <app-game-control></app-game-control>
+  <app-game-control (gameEvent)="onGameEvent($event)"></app-game-control>
+  <div *ngFor="let gameElement of gameElements">
+    <app-odd *ngIf="gameElement.type ==='Odd'" [element]="gameElement"></app-odd>
+    <app-even *ngIf="gameElement.type === 'Even'" [element]="gameElement"></app-even>
+  </div>
 </div>
